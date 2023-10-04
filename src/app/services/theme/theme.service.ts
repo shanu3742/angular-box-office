@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +10,12 @@ export class ThemeService {
  private theme!:string;
 
 
-  constructor() { }
+  constructor(private https:HttpClient) { }
   setTheme(themeType:string){
     this.theme= themeType??this.defaultTheme
   }
   // ../../theme/${compName}/${compName}.${this.theme}.json
-  async getTheme(compName:string){
-    const themeResponse = await fetch(`/assets/theme/${compName}/${compName}.${this.theme}.json`);
-    const theme = await themeResponse.json()
-   return theme
+   getTheme(compName:string){
+    return this.https.get<any>(`/assets/theme/${compName}/${compName}.${this.theme}.json`)
   }
 }

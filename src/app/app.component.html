@@ -1,10 +1,15 @@
-<div class="app-container">
+<div class="app-container" [ngStyle]="{'--background':theme.background,'--color':theme.color}">
  <div class="switch-container">
-  <label class="switch" >
-    <input type="checkbox"  [(ngModel)]="isChecked"   (change)="onToggleChange()">
-    <span class="slider round"></span>
-  </label>
+  <input type="checkbox"
+  id="switch"
+  class="checkbox" type="checkbox"  [(ngModel)]="isChecked"   (change)="onToggleChange()" />
+   
+<label for="switch"
+  class="toggle">
+<p>
+   Light    Dark
+</p>
+</label>
  </div>
-  
-
+ <router-outlet></router-outlet>
 </div>

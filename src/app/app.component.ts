@@ -10,8 +10,9 @@ export class AppComponent implements OnInit {
   constructor(private themeService:ThemeService){
 
     this.themeService.setTheme(!this.isChecked?'light':'dark');
-    this.themeService.getTheme('app').then((theme:any) => {
-      console.log(theme)
+    this.themeService.getTheme('app').subscribe((theme:any) => {
+      
+      this.theme= theme;
     })
   }
   isChecked=false;
@@ -20,15 +21,13 @@ export class AppComponent implements OnInit {
   
   onToggleChange(){
     this.themeService.setTheme(!this.isChecked?'light':'dark');
-    this.themeService.getTheme('app').then((theme:any) => {
-      console.log(theme)
+    this.themeService.getTheme('app').subscribe((theme:any) => {
+      this.theme= theme;
     })
-    console.log(this.isChecked)
   }
 
   ngOnInit(){
-
-
+    console.log(this.theme)
   }
   
 }
