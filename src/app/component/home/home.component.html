@@ -1,9 +1,9 @@
-<div class="home-container">
+<div class="home-container" [ngStyle] ="{'--home-color':theme.color}">
     <header class="nav">
         <div>
             <div>
-                <h1>BOX OFFICE</h1>
-                <p>are you looking for a movie or an actor</p>
+                <app-app-title></app-app-title>
+                <p #dis>are you looking for a movie or an actor</p>
             </div>
             <div>tab change</div>
         </div>

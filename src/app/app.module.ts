@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { ThemeService } from './services/theme/theme.service';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HomePageModule } from './component/home/home.module';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -14,8 +16,10 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
+    CommonModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HomePageModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
