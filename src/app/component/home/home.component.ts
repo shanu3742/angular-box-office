@@ -56,6 +56,8 @@ export class HomeComponent implements OnInit {
    * ViewChildren is different from the ViewChild. ViewChild always returns the reference to a single element. If there are multiple elements the ViewChild returns the first matching element,
    * ViewChildren always returns all the elements as a QueryList. You can iterate through the list and access each element.
    */
+  // ViewChildren(selector: string | Function | Type<any>, opts: { read?: any; }): any
+ 
   @ViewChild(AppTitleComponent,{static:true}) title!:AppTitleComponent;
   @ViewChild('dis',{static:true}) discription!:ElementRef;
   @ViewChild(AppTitleComponent , { read:'Token', static:false } ) AppTitleToken!: string;
@@ -63,20 +65,14 @@ export class HomeComponent implements OnInit {
   appTitle='box office'
   theme:any;
   constructor(private themeService:ThemeService){
-  
-
   }
   ngOnInit(): void {
     this.themeService.getTheme('home').subscribe((theme) => {
       this.theme=theme;
     })
-    
     this.title.appTitle='Box Office'
     console.log(this.discription.nativeElement.innerHTML);
     this.discription.nativeElement.innerHTML="are you looking for a movie or an actor"
     console.log(this.AppTitleToken)
- 
   }
-  
-
 }

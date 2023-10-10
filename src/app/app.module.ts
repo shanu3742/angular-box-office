@@ -9,6 +9,8 @@ import { HomePageModule } from './component/home/home.module';
 import { CommonModule } from '@angular/common';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
-    HomePageModule
+    HomePageModule,
+    FormsModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
